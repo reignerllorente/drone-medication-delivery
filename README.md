@@ -18,7 +18,7 @@ The system supports registering drones, loading medications, checking battery le
 ```bash
 # Clone the repository
 git clone https://github.com/reignerllorente/drone-medication-delivery.git
-cd the-drone
+cd drone-medication-delivery
 
 # Build the project
 mvn clean install
