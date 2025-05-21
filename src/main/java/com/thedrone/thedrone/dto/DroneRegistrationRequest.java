@@ -27,10 +27,6 @@ public class DroneRegistrationRequest {
         return model;
     }
 
-    public void setModel(@NotNull DroneModel model) {
-        this.model = model;
-    }
-
     @NotNull
     private DroneModel model;
 
@@ -38,10 +34,6 @@ public class DroneRegistrationRequest {
     @Positive
     public int getWeightLimit() {
         return weightLimit;
-    }
-
-    public void setWeightLimit(@Max(1000) @Positive int weightLimit) {
-        this.weightLimit = weightLimit;
     }
 
     @Max(1000)
@@ -54,11 +46,17 @@ public class DroneRegistrationRequest {
         return batteryCapacity;
     }
 
-    public void setBatteryCapacity(@Min(0) @Max(100) int batteryCapacity) {
-        this.batteryCapacity = batteryCapacity;
-    }
-
     @Min(0)
     @Max(100)
     private int batteryCapacity;
+
+    public DroneRegistrationRequest(String serialNumber, DroneModel model, int weightLimit, int batteryCapacity) {
+        this.serialNumber = serialNumber;
+        this.model = model;
+        this.weightLimit = weightLimit;
+        this.batteryCapacity = batteryCapacity;
+    }
+
+    public DroneRegistrationRequest() {
+    }
 }
