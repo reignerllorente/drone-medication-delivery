@@ -24,12 +24,6 @@ public class DroneController {
 
     @PostMapping("/register")
     public ResponseEntity<Drone> registerDrone(@RequestBody @Valid DroneRegistrationRequest request) {
-//        Drone drone = Drone.builder()
-//                .serialNumber(request.getSerialNumber())
-//                .model(request.getModel())
-//                .weightLimit(request.getWeightLimit())
-//                .batteryCapacity(request.getBatteryCapacity())
-//                .state(com.thedrone.thedrone.entity.DroneState.IDLE)
 
         Drone drone = new Drone();
         drone.setSerialNumber(request.getSerialNumber());
@@ -38,20 +32,11 @@ public class DroneController {
         drone.setBatteryCapacity(request.getBatteryCapacity());
         drone.setState(com.thedrone.thedrone.entity.DroneState.IDLE);
 
-
         return ResponseEntity.ok(droneService.registerDrone(drone));
     }
 
     @PostMapping("/load")
     public ResponseEntity<Drone> loadDrone(@RequestBody @Valid LoadMedicationRequest request) {
-//        List<Medication> meds = request.getMedications().stream()
-//                .map(dto -> Medication.builder()
-//                        .name(dto.getName())
-//                        .weight(dto.getWeight())
-//                        .code(dto.getCode())
-//                        .image(dto.getImage())
-//                        .build())
-//                .collect(Collectors.toList());
 
         List<Medication> meds = request.getMedications().stream()
                 .map(dto -> {
